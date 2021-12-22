@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import {Routes, Route, Link} from 'react-router-dom'
-import Home from "../components/Home";
+import Landing from "../components/Landing";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         </Navbar>
       </header>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Landing />} />
       </Routes>
     </div>
   );
