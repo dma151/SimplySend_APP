@@ -7,8 +7,10 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
+  const navigate = useNavigate()
   // keeps track of register form input fields
   const [register_user, setRegisterUser] = useState({
     email: "",
@@ -81,11 +83,13 @@ const Home = () => {
        alert(json.msg)
       } else {
         Cookies.set('token', json.user.token)
+        navigate('/home')
       }
     }
     makeAPICall()
-
   };
+
+
 
   return (
     <Container fluid>

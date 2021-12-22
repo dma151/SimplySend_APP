@@ -4,8 +4,25 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import {Routes, Route, Link} from 'react-router-dom'
 import Landing from "../components/Landing";
+import Home from "../components/Home"
+import Button from 'react-bootstrap/Button'
+import { useNavigate } from "react-router-dom"
+import Cookies from "js-cookie"
 
 function App() {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    const makeAPICall = async() => {
+      const res = await fetch('http://localhost:8000/sign-out/', {
+        method: "DELETE",
+        headers: {
+          Authorization: `Token ${Cookies.get('token')}`
+        }
+      })
+      navigate('/')
+    }
+    makeAPICall()
+  }
   return (
     <div className="App">
       <header>
@@ -16,6 +33,7 @@ function App() {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
               </Nav>
+                <Button onClick={handleClick}>Sign Out</Button>
               <Nav>
               </Nav>
             </Navbar.Collapse>
@@ -24,6 +42,7 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Landing />} />
+        <Route path='/home' element={<Home />} />
       </Routes>
     </div>
   );
