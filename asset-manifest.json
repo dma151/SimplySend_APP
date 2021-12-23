@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SimplySend_APP/static/css/main.20f4c784.css",
-    "main.js": "/SimplySend_APP/static/js/main.a89e8ccd.js",
+    "main.css": "/SimplySend_APP/static/css/main.2edff05a.css",
+    "main.js": "/SimplySend_APP/static/js/main.20c1bab1.js",
     "static/js/787.e7044a15.chunk.js": "/SimplySend_APP/static/js/787.e7044a15.chunk.js",
     "index.html": "/SimplySend_APP/index.html",
-    "main.20f4c784.css.map": "/SimplySend_APP/static/css/main.20f4c784.css.map",
-    "main.a89e8ccd.js.map": "/SimplySend_APP/static/js/main.a89e8ccd.js.map",
+    "main.2edff05a.css.map": "/SimplySend_APP/static/css/main.2edff05a.css.map",
+    "main.20c1bab1.js.map": "/SimplySend_APP/static/js/main.20c1bab1.js.map",
     "787.e7044a15.chunk.js.map": "/SimplySend_APP/static/js/787.e7044a15.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20f4c784.css",
-    "static/js/main.a89e8ccd.js"
+    "static/css/main.2edff05a.css",
+    "static/js/main.20c1bab1.js"
   ]
 }
