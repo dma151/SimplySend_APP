@@ -12,7 +12,7 @@ function FriendRequest(props) {
   const handleSubmit = () => {
     const makeAPICall = async () => {
       const res = await fetch(
-        `http://localhost:8000/make-friend-request/${input}/`,
+        `https://simplysendapi.herokuapp.com/make-friend-request/${input}/`,
         {
           method: "POST",
           headers: {

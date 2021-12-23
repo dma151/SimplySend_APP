@@ -16,7 +16,7 @@ function NewConversation(props) {
       participants: [input],
     };
     const makeAPICall = async () => {
-      const res = await fetch(`http://localhost:8000/conversations/create/`, {
+      const res = await fetch(`https://simplysendapi.herokuapp.com/conversations/create/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

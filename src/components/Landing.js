@@ -37,7 +37,7 @@ const Home = () => {
       },
     };
     const makeAPICall = async () => {
-      const res = await fetch("http://localhost:8000/sign-up/", {
+      const res = await fetch("https://simplysendapi.herokuapp.com/sign-up/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const Home = () => {
       },
     };
     const makeAPICall = async () => {
-      const res = await fetch("http://localhost:8000/sign-in/", {
+      const res = await fetch("https://simplysendapi.herokuapp.com/sign-in/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

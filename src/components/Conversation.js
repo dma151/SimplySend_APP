@@ -15,7 +15,7 @@ const Conversation = () => {
   useEffect(() => {
     const makeAPICall = async () => {
       const res = await fetch(
-        `http://localhost:8000/conversations/${conversationID}/`,
+        `https://simplysendapi.herokuapp.com/conversations/${conversationID}/`,
         {
           method: "GET",
           headers: {
@@ -60,7 +60,7 @@ const Conversation = () => {
       conversation: conversationID,
     };
     const makeAPICall = async () => {
-      const res = await fetch("http://localhost:8000/messages/", {
+      const res = await fetch("https://simplysendapi.herokuapp.com/messages/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

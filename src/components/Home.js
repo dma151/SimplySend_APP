@@ -17,7 +17,7 @@ const Home = () => {
   const [friends, setFriends] = useState([]);
   useEffect(() => {
     const getConvosCall = async () => {
-      const res = await fetch("http://localhost:8000/conversations/", {
+      const res = await fetch("https://simplysendapi.herokuapp.com/conversations/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const Home = () => {
       setConversations(json);
     };
     const getFriendsCall = async () => {
-      const res = await fetch("http://localhost:8000/friends/", {
+      const res = await fetch("https://simplysendapi.herokuapp.com/friends/", {
         method: "GET",
         headers: {
           Authorization: `Token ${Cookies.get("token")}`,
