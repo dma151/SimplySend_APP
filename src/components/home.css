@@ -1,0 +1,9 @@
+.pageContainer {
+    height: 80% !important;
+}
+
+@media screen and (max-width: 767) {
+    .convos {
+        display: none
+    }
+}
