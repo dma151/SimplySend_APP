@@ -8,6 +8,7 @@ import Home from "../components/Home"
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from "react-router-dom"
 import Cookies from "js-cookie"
+import Conversation from "../components/Conversation";
 
 function App() {
   const navigate = useNavigate()
@@ -42,7 +43,10 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<Home />}>
+          <Route path=':id' element={<Conversation />} />
+        </Route>
+        <Route path='/conversation/:id' element={<Conversation />} />
       </Routes>
     </div>
   );

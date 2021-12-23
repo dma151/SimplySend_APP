@@ -1,0 +1,16 @@
+#chat {
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.message {
+    bottom: 0 !important;
+    position: fixed;
+    overflow-y: scroll;
+    width: 75%
+}
+
+p {
+    margin: 0;
+    padding: 0
+}
