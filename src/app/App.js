@@ -8,6 +8,7 @@ import Home from "../components/Home"
 import Button from 'react-bootstrap/Button'
 import Cookies from "js-cookie"
 import Conversation from "../components/Conversation";
+import FriendRequests from "../components/FriendRequests";
 
 function App() {
   const navigate = useNavigate()
@@ -25,7 +26,6 @@ function App() {
     makeAPICall()
   }
   const homeFunction = () => {
-    console.log(Cookies.get('token'))
     if (Cookies.get('token')) {
       navigate('/home')
     }
@@ -53,6 +53,7 @@ function App() {
           <Route path=':id' element={<Conversation />} />
         </Route>
         <Route path='/conversation/:id' element={<Conversation />} />
+        <Route path='/friend-requests' element={<FriendRequests />} />
       </Routes>
     </div>
   );

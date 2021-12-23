@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate, Outlet, Link } from "react-router-dom";
 import React from "react";
 import Cookies from "js-cookie";
 import Container from "react-bootstrap/Container";
@@ -96,7 +96,7 @@ const Home = () => {
           <Outlet />
         </Col>
         <Col md={3} lg={3}>
-          <h3>Friends</h3>
+          <h3>Friends           <Link to='../friend-requests'>Requests</Link></h3>
           <Button onClick={handleFriendShow}>Add friend</Button>
           <ListGroup>{friendsList}</ListGroup>
         </Col>
