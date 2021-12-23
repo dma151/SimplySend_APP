@@ -7,10 +7,10 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // keeps track of register form input fields
   const [register_user, setRegisterUser] = useState({
     email: "",
@@ -21,13 +21,11 @@ const Home = () => {
       ...register_user,
       [event.target.type]: event.target.value,
     });
-    console.log(register_user);
   };
   // keeps track of login form input fields
   const [login_user, setLoginUser] = useState({ email: "", password: "" });
   const handleLoginChange = (event) => {
     setLoginUser({ ...login_user, [event.target.type]: event.target.value });
-    console.log(login_user);
   };
   // handleSubmit to Register the new user
   const Register = (event) => {
@@ -38,7 +36,7 @@ const Home = () => {
         password: register_user.password,
       },
     };
-    const makeAPICall = async() => {
+    const makeAPICall = async () => {
       const res = await fetch("http://localhost:8000/sign-up/", {
         method: "POST",
         headers: {
@@ -67,29 +65,27 @@ const Home = () => {
     const data = {
       user: {
         email: login_user.email,
-        password: login_user.password
-      }
-    }
-    const makeAPICall = async() => {
+        password: login_user.password,
+      },
+    };
+    const makeAPICall = async () => {
       const res = await fetch("http://localhost:8000/sign-in/", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
-      })
-      const json = await res.json()
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
       if (res.status === 422) {
-       alert(json.msg)
+        alert(json.msg);
       } else {
-        Cookies.set('token', json.user.token)
-        navigate('/home')
+        Cookies.set("token", json.user.token);
+        navigate("/home");
       }
-    }
-    makeAPICall()
+    };
+    makeAPICall();
   };
-
-
 
   return (
     <Container fluid>

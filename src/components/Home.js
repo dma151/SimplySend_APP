@@ -13,7 +13,6 @@ import "./home.css";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [renderCounter, setRenderCounter] = useState(0)
   const [conversations, setConversations] = useState([]);
   const [friends, setFriends] = useState([]);
   useEffect(() => {
@@ -77,8 +76,16 @@ const Home = () => {
 
   return (
     <Container fluid className="pageContainer">
-        <FriendRequest show={showFriend} handleClose={handleFriendClose} handleShow={handleFriendShow} />
-        <NewConversation show={showConvo} handleClose={handleConvoClose} handleShow={handleConvoShow} />
+      <FriendRequest
+        show={showFriend}
+        handleClose={handleFriendClose}
+        handleShow={handleFriendShow}
+      />
+      <NewConversation
+        show={showConvo}
+        handleClose={handleConvoClose}
+        handleShow={handleConvoShow}
+      />
       <Row>
         <Col md={3} lg={3}>
           <h3>Conversations</h3>
