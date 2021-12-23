@@ -2,11 +2,10 @@ import "./App.css";
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import {Routes, Route, Link} from 'react-router-dom'
+import {Routes, Route, useNavigate } from 'react-router-dom'
 import Landing from "../components/Landing";
 import Home from "../components/Home"
 import Button from 'react-bootstrap/Button'
-import { useNavigate } from "react-router-dom"
 import Cookies from "js-cookie"
 import Conversation from "../components/Conversation";
 
@@ -21,15 +20,22 @@ function App() {
         }
       })
       navigate('/')
+      Cookies.remove('token')
     }
     makeAPICall()
+  }
+  const homeFunction = () => {
+    console.log(Cookies.get('token'))
+    if (Cookies.get('token')) {
+      navigate('/home')
+    }
   }
   return (
     <div className="App">
       <header>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand>SimplySend</Navbar.Brand>
+            <Navbar.Brand onClick={homeFunction}>SimplySend</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">

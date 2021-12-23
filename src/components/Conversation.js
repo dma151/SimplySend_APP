@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Cookies from "js-cookie";
 import './conversation.css'
 import Container from "react-bootstrap/Container";
@@ -10,9 +10,11 @@ import Button from "react-bootstrap/Button";
 
 const Conversation = () => {
   const [messages, setMessages] = useState([]);
+  let currentBrowser = window.location.hash
+  let conversationID = currentBrowser.charAt(currentBrowser.length - 1)
   useEffect(() => {
     const makeAPICall = async () => {
-      const res = await fetch("http://localhost:8000/conversations/5/", {
+      const res = await fetch(`http://localhost:8000/conversations/${conversationID}/`, {
         method: "GET",
         headers: {
           Authorization: `Token ${Cookies.get("token")}`,
@@ -23,6 +25,12 @@ const Conversation = () => {
     };
     makeAPICall();
   }, []);
+
+  const AlwaysScrollToBottom = () => {
+      const elementRef = useRef();
+      useEffect(() => elementRef.current.scrollIntoView());
+      return <div ref={elementRef} />
+  }
 
   const chat = messages.map((message) => {
     // getAuthor(message.author)
@@ -46,7 +54,7 @@ const Conversation = () => {
   const Send = (event) => {
     const body = {
         content: input,
-        conversation: 5
+        conversation: conversationID
     }
     const makeAPICall = async() => {
         const res = await fetch('http://localhost:8000/messages/', {
@@ -62,10 +70,12 @@ const Conversation = () => {
     }
     makeAPICall()
   }
-
   return (
     <div>
-      <Container id="chat" fluid>{chat}</Container>
+      <Container id="chat" fluid>
+          {chat}
+          <AlwaysScrollToBottom />
+      </Container>
       <Form onSubmit={Send} className="message">
         <Row>
           <Col xs={9} sm={9} lg={9} xl={9}>
