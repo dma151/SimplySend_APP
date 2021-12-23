@@ -13,7 +13,7 @@ function App() {
   const navigate = useNavigate()
   const handleClick = () => {
     const makeAPICall = async() => {
-      const res = await fetch('http://localhost:8000/sign-out/', {
+      const res = await fetch('https://simplysendapi.herokuapp.com/sign-out/', {
         method: "DELETE",
         headers: {
           Authorization: `Token ${Cookies.get('token')}`
